@@ -1,0 +1,24 @@
+.articles {
+  flex: 3;
+}
+.article {
+  padding: 30px 0 20px;
+  display: flex;
+}
+.article .content {
+  flex: 4;
+}
+.article .img {
+  flex: 1;
+}
+.article .ant-divider {
+  flex: 0;
+}
+.article .content a {
+  color: #333;
+  font-size: large;
+  font-weight: 700;
+}
+.article .content .watch-info {
+  padding: 20px 0 0;
+}

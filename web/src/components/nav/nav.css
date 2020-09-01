@@ -1,0 +1,10 @@
+.ant-menu {
+  display: inline-block;
+  margin: 0 40px;
+  border: 0;
+  text-align: center;
+  height: 64px;
+}
+.ant-menu .ant-menu-item {
+  width: 50px;
+}

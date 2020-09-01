@@ -1,0 +1,44 @@
+#App {
+  width: 100vw;
+  min-width: 1300px;
+}
+.ant-layout {
+  background-color: #fff;
+  margin-left: calc(100vw - 100%);
+}
+.ant-layout-header {
+  position: fixed;
+  top: 0;
+  left: calc(100vw - 100%);
+  right: 0;
+  z-index: 1000;
+  line-height: 64px;
+  padding: 0;
+  background-color: #fff;
+  min-width: 1300px;
+}
+.ant-layout-header .nav, .ant-layout-content {
+  width: 70vw;
+  margin: 0 auto;
+}
+.ant-layout-content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 65px;
+  display: flex;
+}
+.ant-layout-footer {
+  position: relative;
+  bottom: -60px;
+  width: 70vw;
+  margin: 0 auto;
+  height: 60px;
+}
+#main {
+  margin: 10px 0 0;
+  flex: 3;
+}
+.nav {
+  min-width: 1300px;
+}
