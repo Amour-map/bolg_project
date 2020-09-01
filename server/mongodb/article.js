@@ -1,4 +1,5 @@
 const mongoose = require('./mongodb');
+const uuid = require('node-uuid');
 
 const Schema = mongoose.Schema;
 
@@ -20,7 +21,7 @@ const article = new Schema({
     type: String,
     required: true
   },
-  imgs: {
+  img_url: {
     type: String,
     required: true
   }
