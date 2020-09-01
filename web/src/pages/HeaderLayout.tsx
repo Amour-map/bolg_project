@@ -29,7 +29,7 @@ const HeaderLayout: React.FC = (props) => {
     let loginFormData = new FormData();
     loginFormData.append("email", loginForm.getFieldValue("email"));
     loginFormData.append("password", loginForm.getFieldValue("password"));
-    let msg = await axios.post("/login", loginFormData);
+    let msg = await axios.post("/api/user/login", loginFormData);
     console.log(msg)
   }
   const loginCancel = () => { 
@@ -40,7 +40,7 @@ const HeaderLayout: React.FC = (props) => {
     createUserformData.append("username", createUserForm.getFieldValue("username"));
     createUserformData.append("password", createUserForm.getFieldValue("password"));
     createUserformData.append("email", createUserForm.getFieldValue("email"));
-    let msg = await axios.post("/api/adduser", createUserformData);
+    let msg = await axios.post("/api/user/adduser", createUserformData);
     console.log(msg);
   }
   const registerCancel = () => { 
