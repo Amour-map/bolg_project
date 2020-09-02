@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { Layout } from 'antd';
 import Profiles from "../components/profiles/Profiles";
 import Articles from "../components/articles/Articles";
@@ -15,7 +15,7 @@ import "../assets/css/content.css";
 
 const { Content } = Layout;
 
-const ContentLayout:React.FC = () => {
+const ContentLayout:React.FC = (props:any) => {
   return (
     <>
       <Content>
@@ -35,4 +35,4 @@ const ContentLayout:React.FC = () => {
   )
 }
 
-export default ContentLayout;
+export default withRouter(ContentLayout);

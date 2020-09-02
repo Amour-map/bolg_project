@@ -38,7 +38,7 @@ const Nav:React.FC<NavProps> = (props) => {
         {
           props.fields.map((field) => (
             <Menu.Item key={field.key} icon={field.icon}>
-              <Link to={`${field.key}`}>{field.value}</Link>
+              <Link to={`/${field.key}`}>{field.value}</Link>
             </Menu.Item>
           ))
         }

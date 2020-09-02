@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require("path");
 const router = express.Router();
 const multiparty = require("multiparty");
 const fs = require("fs");
@@ -64,7 +65,7 @@ router.post('/upload', upload.single('logo'), function(req, res, next){
 });
 
 /* ***************************************************************** 
-                              查询文章
+                              获取文章
 ***************************************************************** */
 router.get("/allarticles", async (req, res) => {
   try {
@@ -82,5 +83,27 @@ router.get("/allarticles", async (req, res) => {
     });
   }
 });
+/* ***************************************************************** 
+                              获取文章图片
+***************************************************************** */
+router.get("/articleimg/:url", async (req, res) => {
+  try {
+    let url = path.resolve(__dirname, `../upload/imgs/${req.params.url}`)
+    res.sendFile(url, function (err) {
+      if (err) {
+        console.log(err, '读取文件出错');
+      } else {
+        console.log('Sent:', url);
+      }
+    })
+  } catch (e) {
+    console.log(e, "获取图片失败");
+    res.send({
+      code: 0,
+      success: false
+    });
+  }
+});
+
 
 module.exports = router;

@@ -5,6 +5,7 @@ const api = require("./route");
 const app = express();
 // 使用接口
 app.use('/api', api);
+// 设置静态目录
 
 // 监听3001端口
 app.listen("3001", () => {
