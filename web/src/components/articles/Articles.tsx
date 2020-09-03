@@ -5,11 +5,13 @@ import { Divider } from "antd";
 import { EyeOutlined, HeartOutlined, MessageOutlined } from "@ant-design/icons";
 import axios from "axios";
 import "./articles.css";
-import RouteProps from "../../pages/CommonInterface";
+// 引入携带路由的props接口
+import {RouteProps, AxiosResult} from "../../pages/CommonInterface";
 import ArticleDetails from "./ArticleDetails";
 // 定义文章的接口
 interface Article {
   title: String;
+  article_id: String;
   sub_title: String;
   img_url: String;
   content: String;
@@ -18,7 +20,7 @@ interface Article {
   love: Number;
   time: String;
 }
-const Articles:React.FC = (props:any) => {
+const Articles:React.FC<RouteProps> = (props:RouteProps) => {
   // 初始化
   const [articleList, setArticleList] = useState<Article[]>([]);
   useEffect(() => {
@@ -26,10 +28,12 @@ const Articles:React.FC = (props:any) => {
     let newArticleList:Article[] = [];
     async function getAllArticles() {
       try {
-        let res:any = await axios.get("/api/article/allarticles");
+        let res:AxiosResult = await axios.get("/api/article/allarticles");
+        console.log(res)
         if(res.data !== undefined) {
           res.data.data.forEach( async (item:Article) => {
             newArticleList.push({
+              article_id: item.article_id,
               title: item.title,
               sub_title: item.sub_title,
               content: item.content,
@@ -53,12 +57,12 @@ const Articles:React.FC = (props:any) => {
   
   return (
     <div className="artiles-container">
-      <Route path={`${props.match.path}/articledetails`} component={ArticleDetails} />
+      <Route path={`${props.match.path}/articledetails/:articleId`} component={ArticleDetails} />
        {
-        props.location.pathname === props.match.path ? articleList.map((item:Article, index:any) => {
+        props.location.pathname === props.match.path ? articleList.map((item:Article, index:string|number|undefined) => {
             return (
               <div key={index}>
-                <Link to={`${props.match.path}/articledetails`}>
+                <Link to={`${props.match.path}/articledetails/${item.article_id}`}>
                   <div className="article">
                     <div className="content">
                       <span>{item.title}</span>

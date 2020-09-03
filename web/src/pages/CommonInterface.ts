@@ -1,7 +1,10 @@
 import { RouteComponentProps } from "react-router-dom";
+import { AxiosResponse } from "axios";
 
-interface RouteProps extends RouteComponentProps {
+export interface RouteProps extends RouteComponentProps {
 
 }
 
-export default RouteProps;
+export interface AxiosResult extends AxiosResponse {
+
+}

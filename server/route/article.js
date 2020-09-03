@@ -104,6 +104,28 @@ router.get("/articleimg/:url", async (req, res) => {
     });
   }
 });
-
+/* ***************************************************************** 
+                              查询某个文章
+***************************************************************** */
+router.get(`/:id`, async (req, res) => {
+  console.log(req.params);
+  try {
+    let data = await db.Article.findOne({
+      article_id: req.params.id
+    });
+    console.log(data)
+    res.send({
+      code: 0,
+      success: true,
+      data
+    });
+  } catch (e) {
+    console.log(e, "获取当前文章失败");
+    res.send({
+      code: 0,
+      success: false
+    });
+  }
+});
 
 module.exports = router;

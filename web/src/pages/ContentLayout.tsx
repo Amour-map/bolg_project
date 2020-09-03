@@ -10,12 +10,13 @@ import Message from "../components/message/Message";
 import Resume from "../components/resume/Resume";
 import UserInfo from "../components/userInfo/UserInfo";
 import WriteBlog from "../components/wirteBlog/WriteBlog";
+import {RouteProps, AxiosResult} from "../pages/CommonInterface";
 
 import "../assets/css/content.css";
 
 const { Content } = Layout;
 
-const ContentLayout:React.FC = (props:any) => {
+const ContentLayout:React.FC<RouteProps> = (props:RouteProps) => {
   return (
     <>
       <Content>
