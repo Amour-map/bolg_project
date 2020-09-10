@@ -1,0 +1,28 @@
+/* login组件整体样式 start */
+#login {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  width: 500px;
+  height: 300px;
+}
+/* login组件整体样式 end */
+
+/* 标题样式 start */
+#login h1 {
+  margin-bottom: 40px;
+}
+/* 标题样式 end */
+
+/* 表单样式 start */
+#login-form {
+  width: 400px;
+  margin: 0 auto;
+}
+#login-form .ant-form-item {
+  height: 50px;
+}
+/* 表单样式 end */

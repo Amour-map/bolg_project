@@ -1,13 +1,14 @@
 import React, { useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 import axios from "axios";
-import {RouteProps, AxiosResult} from "../../pages/CommonInterface";
 
-const ArticleDetails:React.FC<RouteProps> = (props:RouteProps) => {
+
+
+const ArticleDetails:React.FC<RouteComponentProps> = (props:RouteComponentProps) => {
   console.log(props.match)
   async function getSingleArticle() {
-    let res = await axios.get('/api/article/aaa');
-    console.log(res);
+    // let res:GetSingleArticleRes = await axios.get(`/api/article/${props.match.params.articleId}`);
+    // console.log(res);
   }
   useEffect(() => {
     getSingleArticle();

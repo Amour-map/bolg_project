@@ -1,0 +1,8 @@
+/* 将外部容器大小覆盖整个页面 */
+#root, .App{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
