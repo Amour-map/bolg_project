@@ -10,7 +10,7 @@ function Login(props) {
     wrapperCol: { span: 20 },
   };
   const tailLayout = {
-    wrapperCol: { offset: 8,span: 16 },
+    wrapperCol: { span: 24 },
   };
   // 校验成功回调
   const onFinish = values => {
