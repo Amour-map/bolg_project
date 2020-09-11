@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, Input, Button, Space } from 'antd';
+import { Form, Input, Button, Row, Col } from 'antd';
 // 引入login组件样式
 import './login.css';
 
@@ -10,7 +10,7 @@ function Login(props) {
     wrapperCol: { span: 20 },
   };
   const tailLayout = {
-    wrapperCol: { span: 24 },
+    wrapperCol: { offset: 4, span: 20 },
   };
   // 校验成功回调
   const onFinish = values => {
@@ -46,15 +46,19 @@ function Login(props) {
           <Input.Password visibilityToggle={false} />
         </Form.Item>
 
-        <Form.Item style={{textAlign: 'center'}}>
-          <Space size="large">
-            <Button type="primary" htmlType="submit">
-              登录
-            </Button>
-            <Button type="default" htmlType="reset">
-              重置
-            </Button>
-          </Space>
+        <Form.Item {...tailLayout}>
+            <Row>
+              <Col span={10} offset={2}>
+                <Button type="primary" htmlType="submit">
+                  登录
+                </Button>
+              </Col>
+              <Col span={10} offset={2}>
+                <Button type="default">
+                  重置
+                </Button>
+              </Col>
+            </Row>
         </Form.Item>
       </Form>
     </div>
