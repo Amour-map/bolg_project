@@ -54,7 +54,7 @@ function Login(props) {
                 </Button>
               </Col>
               <Col span={10} offset={2}>
-                <Button type="default">
+                <Button type="default" onClick="resetFiled">
                   重置
                 </Button>
               </Col>

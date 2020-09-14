@@ -1,11 +1,59 @@
 #home {
-  
+  height: 100%;
+}
+#home .layout {
+  height: 100%;
+}
+/* ******************************** 头部 start ******************************** */
+
+/* 头部容器 */
+.site-layout .header {
+  background: #fff;
+  position: relative;
+}
+/* 头部头像 */
+#home .avatar-container {
+  background-color: #bdc3c7;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* 展开按钮 */
+#home .trigger {
+  font-size: 18px;
+  line-height: 64px;
+  font-size: 20px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+#home .trigger:hover {
+  color: #1890ff;
+}
+/* 左上角logo和标题页 */
+#home .logo {
+  height: 40px;
+  margin: 16px;
+  text-align: center;
+  overflow: hidden;
+  line-height: 40px;
+}
+#home .logo .title {
+  color: #ecf0f1;
+  display: inline-block;
+  font-size: 18px;
+}
+/* ******************************** 头部 end ******************************** */
+
+/* ******************************** 侧边栏 start ******************************** */
+
+/* ******************************** 侧边栏 end ******************************** */
+
+/* ******************************** 内容 start ******************************** */
+
+#home .content-container {
+  background-color: #fff;
 }
 
-#components-layout-demo-top-side-2 .logo {
-  width: 120px;
-  height: 31px;
-  background: rgba(255, 255, 255, 0.2);
-  margin: 16px 28px 16px 0;
-  float: left;
-}
+/* ******************************** 内容 end ******************************** */
