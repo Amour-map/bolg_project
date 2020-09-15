@@ -111,7 +111,7 @@ router.get(`/:id`, async (req, res) => {
   console.log(req.params);
   try {
     let data = await db.Article.findOne({
-      article_id: req.params.id
+      _id: req.params.id
     });
     console.log(data)
     res.send({

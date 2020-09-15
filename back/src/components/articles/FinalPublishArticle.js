@@ -1,6 +1,7 @@
 import React from 'react';
+import { Card } from 'antd';
 
-function Temp() {
+function FinalPublishArticle(props) {
   /* ************************************** 
                 state start 
   **************************************** */
@@ -16,11 +17,22 @@ function Temp() {
   /* ************************************** 
                 func end 
   **************************************** */
+ 
   return (
-    <>
-
-    </>
+    <Card title="文章预览">
+      <div style={{display: 'flex'}}>
+        <div 
+          style={{
+            flex: 1,
+            overflowY: 'scroll', 
+            height: '500px'
+          }} 
+          dangerouslySetInnerHTML={{__html: props.articleHTML}}
+        >
+        </div>
+      </div>
+    </Card>
   )
 }
 
-export default Temp;
+export default FinalPublishArticle;

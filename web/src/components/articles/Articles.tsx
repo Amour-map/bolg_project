@@ -11,7 +11,7 @@ import ArticleDetails from "./ArticleDetails";
 // 定义文章的接口
 interface Article {
   title: String;
-  article_id: String;
+  _id: String;
   sub_title: String;
   img_url: String;
   content: String;
@@ -29,11 +29,10 @@ const Articles:React.FC<RouteProps> = (props:RouteProps) => {
     async function getAllArticles() {
       try {
         let res:AxiosResult = await axios.get("/api/article/allarticles");
-        console.log(res)
         if(res.data !== undefined) {
           res.data.data.forEach( async (item:Article) => {
             newArticleList.push({
-              article_id: item.article_id,
+              _id: item._id,
               title: item.title,
               sub_title: item.sub_title,
               content: item.content,
@@ -62,7 +61,7 @@ const Articles:React.FC<RouteProps> = (props:RouteProps) => {
         props.location.pathname === props.match.path ? articleList.map((item:Article, index:string|number|undefined) => {
             return (
               <div key={index}>
-                <Link to={`${props.match.path}/articledetails/${item.article_id}`}>
+                <Link to={`${props.match.path}/articledetails/${item._id}`}>
                   <div className="article">
                     <div className="content">
                       <span>{item.title}</span>

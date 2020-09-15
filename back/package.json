@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^7.2.1",
     "@tinymce/tinymce-react": "^3.6.1",
     "antd": "^4.6.1",
+    "axios": "^0.20.0",
     "braft-editor": "^2.3.9",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -37,5 +38,6 @@
   "devDependencies": {
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0"
-  }
+  },
+  "proxy": "http://localhost:3001"
 }

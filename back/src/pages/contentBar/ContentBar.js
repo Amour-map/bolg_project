@@ -16,14 +16,32 @@ function ContentBar(props) {
       className="content-container"
       style={{
         margin: '24px 16px',
-        padding: '24px',
-        minHeight: 280,
+        padding: '24px'
       }}
     >
       {/* <Breadcrumb style={{padding: '10px 0'}}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
       </Breadcrumb> */}
+      {/* <div style={{
+          display: 'flex',  
+          alignItems: 'center', 
+          height: '100%'
+        }}
+      >
+        <div 
+          style={{
+            flex: '1', 
+            height: '50px', 
+            lineHeight: '50px', 
+            textAlign: 'center', 
+            fontSize: '18px',
+            fontWeight: 'bold'
+          }}
+        >
+          前端不仅仅会用轮子，还要会造轮子
+        </div>
+      </div> */}
       <Route path={router.writeArticle} component={WriteArticles} />
       <Route path={router.articleList} component={ArticlesList} />
     </Content>

@@ -54,6 +54,9 @@
 
 #home .content-container {
   background-color: #fff;
+  min-height: auto;
 }
-
+#home .bf-content {
+  border: 1px solid #ccc;
+}
 /* ******************************** 内容 end ******************************** */
