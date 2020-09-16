@@ -128,4 +128,28 @@ router.get(`/:id`, async (req, res) => {
   }
 });
 
+/* ***************************************************************** 
+                              删除某个文章
+***************************************************************** */
+router.get(`/delete/:id`, async (req, res) => {
+  console.log(req.params);
+  try {
+    let data = await db.Article.deleteOne({
+      _id: req.params.id
+    });
+    console.log(data)
+    res.send({
+      code: 0,
+      success: true,
+      data
+    });
+  } catch (e) {
+    console.log(e, "删除当前文章失败");
+    res.send({
+      code: 0,
+      success: false
+    });
+  }
+});
+
 module.exports = router;

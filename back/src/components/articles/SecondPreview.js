@@ -16,12 +16,12 @@ function SecondPreview(props) {
   /* ************************************** 
                 func start 
   **************************************** */
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
+  // const onFinish = values => {
+  //   console.log('Success:', values);
+  // };
+  // const onFinishFailed = errorInfo => {
+  //   console.log('Failed:', errorInfo);
+  // };
   /* ************************************** 
                 func end 
   **************************************** */
