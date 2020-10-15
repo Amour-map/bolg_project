@@ -8,7 +8,6 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 
 function App(props) {
-  console.log(props)
   return (
     <div className="App">
       <Route path="/login" component={Login} />

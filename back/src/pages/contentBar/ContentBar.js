@@ -13,13 +13,7 @@ const { Content } = Layout;
 
 function ContentBar(props) {
   return (
-    <Content
-      className="content-container"
-      style={{
-        margin: '24px 16px',
-        padding: '24px'
-      }}
-    >
+    <>
       {/* <Breadcrumb style={{padding: '10px 0'}}>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
         <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -48,7 +42,7 @@ function ContentBar(props) {
       <Route path={router.writeArticle} component={WriteArticles} />
       <Route path={router.editArticle} component={EditArticle} />
       <Route path={router.articleList} component={ArticlesList} />
-    </Content>
+    </>
   )
 }
 
