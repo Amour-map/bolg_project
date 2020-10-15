@@ -6,6 +6,7 @@ import { Layout } from 'antd';
 import router from '../../router';
 // 路由页面相关
 import WriteArticles from '../../components/articles/WriteArticles';
+import EditArticle from '../../components/articles/EditArticle';
 import ArticlesList from '../../components/articles/ArticlesList';
 // 获取Content组件
 const { Content } = Layout;
@@ -26,7 +27,8 @@ function ContentBar(props) {
       {/* <div style={{
           display: 'flex',  
           alignItems: 'center', 
-          height: '100%'
+          height: '100%',
+          background: "url('./home_bg.jpeg') repeat-y"
         }}
       >
         <div 
@@ -36,13 +38,15 @@ function ContentBar(props) {
             lineHeight: '50px', 
             textAlign: 'center', 
             fontSize: '18px',
-            fontWeight: 'bold'
+            fontWeight: 'bold',
+            color: '#fff'
           }}
         >
-          前端不仅仅会用轮子，还要会造轮子
+          前端不仅仅要会用轮子，还要会造轮子
         </div>
       </div> */}
       <Route path={router.writeArticle} component={WriteArticles} />
+      <Route path={router.editArticle} component={EditArticle} />
       <Route path={router.articleList} component={ArticlesList} />
     </Content>
   )

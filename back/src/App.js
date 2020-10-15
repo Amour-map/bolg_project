@@ -7,7 +7,8 @@ import Home from './pages/Home';
 // 引入登录组件
 import Login from './pages/Login';
 
-function App() {
+function App(props) {
+  console.log(props)
   return (
     <div className="App">
       <Route path="/login" component={Login} />

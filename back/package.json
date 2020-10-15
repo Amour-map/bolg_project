@@ -10,6 +10,7 @@
     "antd": "^4.6.1",
     "axios": "^0.20.0",
     "braft-editor": "^2.3.9",
+    "braft-extensions": "^0.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.3"

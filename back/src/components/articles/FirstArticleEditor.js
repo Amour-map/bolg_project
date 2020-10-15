@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 // 引入富文本插件
 import 'braft-editor/dist/index.css';
 import BraftEditor from 'braft-editor';
+
 function FirstArticleEditor(props) {
   /* ************************************** 
                 state start 
@@ -31,7 +32,7 @@ function FirstArticleEditor(props) {
   **************************************** */
  
   return (
-    <div className="editor-wrapper">
+    <div className="editor-wrapper" style={{fontSize: '18px'}}>
       <BraftEditor
         value={editorContent}
         onChange={handleEditorChange}

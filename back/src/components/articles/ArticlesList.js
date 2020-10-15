@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Table, Space, Button, Modal, message } from 'antd';
 import { DeleteOutlined, EditOutlined  } from "@ant-design/icons";
 import axios from 'axios';
+// 引入路由映射表
+import Router from '../../router';
 
 function ArticlesList(props) {
   /* ************************************** 
@@ -37,6 +39,10 @@ function ArticlesList(props) {
       setArticlesListData(res.data.data);
     }
   } 
+  // 编辑文章的方法
+  const editArticle = () => {
+    props.history.push(Router.editArticle);
+  }
   // 删除文章数据的方法
   const deleteSingalArticle = async () => {
     let res = await axios.get(`/api/article/delete/${currentArticleId}`);
@@ -65,13 +71,15 @@ function ArticlesList(props) {
       key: 'sub_title',
     },
     {
-      title: 'Action',
+      title: '操作',
       key: 'action',
       render: (text, record) => (
         <Space>
           <Button 
             type="primary" 
-            icon={<EditOutlined />}>
+            icon={<EditOutlined />}
+            onClick={editArticle}  
+          >
             编辑
           </Button>
           <Button 

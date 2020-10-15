@@ -15,6 +15,7 @@ function Login(props) {
   // 校验成功回调
   const onFinish = values => {
     console.log('Success:', values);
+    props.history.push('/')
   };
   // 校验失败回调
   const onFinishFailed = errorInfo => {

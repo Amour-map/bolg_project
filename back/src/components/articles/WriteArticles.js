@@ -15,7 +15,7 @@ function WriteArticles(props) {
   /* ************************************** 
                 state start 
   **************************************** */
-  // 当前页面jsx
+  // 当前页面进度
   const steps = [
     {
       title: '写文章',
@@ -30,9 +30,18 @@ function WriteArticles(props) {
   // 默认的当前进度位置
   const [current, setCurrent] = useState(0);
   // 默认的富文本内容和输出内容
+  let defaultContent = '';
+  if(props.defaultContent) {
+    // 编辑时从数据库读入的内容
+    defaultContent = props.defaultContent;
+  } else {
+    // 新增时的默认内容
+    defaultContent = '';
+  }
   const [editorContent, setEditorContent] = useState(
-    BraftEditor.createEditorState('')
+    BraftEditor.createEditorState(defaultContent)
   );
+  console.log(props.defaultContent);
   const [outputHTML, setOutputHTML] = useState("");
   // 标题表单实例
   const [titleForm, setTitleForm] = useState(null);
@@ -58,7 +67,7 @@ function WriteArticles(props) {
   // 下一步触发
   const next = async () => {
     // 第一步未输入内容触发
-    if(current === 0 && outputHTML === '') {
+    if(current === 0 && editorContent === '') {
       message.warning('文章内容不能为空！')
       return
     }
@@ -86,10 +95,31 @@ function WriteArticles(props) {
     let msg = await axios.post("/api/article/writeblog", articleData);
     if(msg.data.success) {
       message.success('发布文章成功!');
-      props.history.push('/')
+      // 跳入下一步
+      setCurrent(current+1);
     } else {
       message.error('发布文章失败，请刷新后重试!')
     }
+  }
+  const editArticle = async () => {
+    console.log('修改文章')
+    let articleData = new FormData();
+    articleData.append("title", titleForm.getFieldValue("title"));
+    articleData.append("sub_title", titleForm.getFieldValue("sub_title"));
+    articleData.append("content", outputHTML);
+    articleData.append("img_url", titleForm.getFieldValue("img_url"));
+    let msg = await axios.post("/api/article/editBlog", articleData);
+    if(msg.data.success) {
+      message.success('修改文章成功!');
+      // 跳入下一步
+      setCurrent(current+1);
+    } else {
+      message.error('修改文章失败，请刷新后重试!')
+    }
+  }
+  // 返回主页
+  const toHome = () => {
+    props.history.push('/');
   }
   /* ************************************** 
                 func end 
@@ -141,19 +171,30 @@ function WriteArticles(props) {
           zIndex: '1'
         }}
         >
-        {current > 0 && (
-          <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
-            上一步
-          </Button>
-        )}
-        {current < steps.length - 1 && (
+        {current === 0 && (
           <Button type="primary" onClick={() => next()}>
             下一步
           </Button>
         )}
-        {current === steps.length - 1 && (
-          <Button type="primary" onClick={publishArticle()}>
-            发布文章
+        {current === 1 && (
+          <div>
+            <Button style={{ margin: '0 8px' }} onClick={() => prev()}>
+              上一步
+            </Button>
+            <Button type="primary" onClick={() => {
+              if(props.isEdit) {
+                editArticle();
+              }else {
+                publishArticle();
+              }
+            }}>
+              发布文章
+            </Button>
+          </div>
+        )}
+        {current === 2 && (
+          <Button type="primary" onClick={() => toHome()}>
+            完成
           </Button>
         )}
       </div>
